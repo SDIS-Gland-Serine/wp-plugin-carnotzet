@@ -1,0 +1,21 @@
+<div class="wrap stats">
+    <?php
+    foreach ($carnotzets as $carnotzet) {
+        // Vérifier si polls_opening_status est vide
+        if ($carnotzet->polls_opening_status === '') {
+            // Désérialiser le meta_value
+            $meta_data = unserialize($carnotzet->meta_value);
+
+            echo '<h1>' . $carnotzet->formName . '</h1>';
+            echo '<p>'.$carnotzet->polls_description . '</p>';
+            echo '<p>Note moyenne : ' . $carnotzet->polls_average . '</p>';
+            echo '<p>Nombre de votes : ' . $carnotzet->polls_entry_count . '</p>';
+
+            // Afficher les autres informations si nécessaire
+            if (isset($meta_data['settings']) && is_array($meta_data['settings'])) {
+                echo '<p>Question du sondage : ' . $meta_data['settings']['poll-question'] . '</p>';
+            }
+        }
+    }
+    ?>
+</div>

@@ -1,0 +1,40 @@
+<div class="wrap stats">
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Form Name</th>
+                <th>Average</th>
+                <th>Entry Count</th>
+                <th>Answer 1</th>
+                <th>Answer 2</th>
+                <th>Answer 3</th>
+                <th>Answer 4</th>
+                <th>Answer 5</th>
+                <th>Answer 6</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            foreach ($carnotzets as $carnotzet) {
+                // Désérialiser le meta_value
+                $meta_data = unserialize($carnotzet->meta_value);
+
+                echo '<tr>';
+                echo '<td>' . htmlspecialchars($meta_data['settings']['formName']) . '</td>';
+                echo '<td>' . htmlspecialchars($carnotzet->polls_average) . '</td>';
+                echo '<td>' . htmlspecialchars($carnotzet->polls_entry_count) . '</td>';
+                echo '<td>' . htmlspecialchars($carnotzet->answer_1) . '</td>';
+                echo '<td>' . htmlspecialchars($carnotzet->answer_2) . '</td>';
+                echo '<td>' . htmlspecialchars($carnotzet->answer_3) . '</td>';
+                echo '<td>' . htmlspecialchars($carnotzet->answer_4) . '</td>';
+                echo '<td>' . htmlspecialchars($carnotzet->answer_5) . '</td>';
+                echo '<td>' . htmlspecialchars($carnotzet->answer_6) . '</td>';
+                echo '</tr>';
+            }
+            ?>
+        </tbody>
+    </table>
+    echo '<pre>';
+        print_r($carnotzet);
+        echo '</pre>';
+</div>

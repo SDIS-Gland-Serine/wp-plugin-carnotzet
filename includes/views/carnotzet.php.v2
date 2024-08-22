@@ -1,0 +1,37 @@
+<div class="wrap stats">
+    <?php
+    foreach ($carnotzets as $carnotzet) {
+    // Désérialiser le meta_value
+    $meta_data = unserialize($carnotzet->meta_value);
+
+    //echo '<h2>' . $carnotzet->polls_name . '</h2>';
+    //echo '<h2>' . $meta_data['settings']['poll-question'] . '(poll-question)</h2>';
+    //echo '<h2>' . $meta_data['settings']['form_name'] . '(form_name)</h2>';
+    echo '<h2>' . $meta_data['settings']['formName'] . '(formName)</h2>';
+    echo '<p>Question du sondage : ' . $meta_data['settings']['poll-question'] . '</p>';
+    echo '<h3>Moyenne des votes : ' . $carnotzet->polls_average . '<br />';
+    echo 'Nombre de votes : ' . $carnotzet->polls_entry_count . '</h3>';
+    
+    /*
+    // Afficher les champs du sondage
+    if (isset($meta_data['fields']) && is_array($meta_data['fields'])) {
+        echo '<ul>';
+        foreach ($meta_data['fields'] as $field) {
+            echo '<li>' . $field['title'] . '</li>';
+        }
+        echo '</ul>';
+    }
+
+    // Afficher les autres informations si nécessaire
+    if (isset($meta_data['settings']) && is_array($meta_data['settings'])) {
+        echo '<p>Question du sondage : ' . $meta_data['settings']['poll-question'] . '</p>';
+    }
+    // Affiche tous les champs
+        echo '<pre>';
+        print_r($carnotzet);
+        echo '</pre>';
+    */
+}
+
+    ?>
+</div>

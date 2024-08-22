@@ -1,0 +1,8 @@
+<div class="wrap stats">
+    <?php
+    // Affiche tous les champs de $carnotzet
+    echo '<pre>';
+    print_r($carnotzet);
+    echo '</pre>';
+    ?>
+</div>
