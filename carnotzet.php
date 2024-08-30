@@ -34,7 +34,7 @@ function carnotzet_admin_menu() {
     add_menu_page(
         'Carnotzet',          // Page title
         'Carnotzet',          // Menu title
-        'EM_HVI',     // Capability
+        'read',     // Capability
         'carnotzet',          // Menu slug
         'displayCarnotzet',   // Function to display the page content
         'dashicons-coffee',   // Icon URL
@@ -44,17 +44,17 @@ function carnotzet_admin_menu() {
     // add_submenu_page( $parent_slug, $page_title, $menu_title, $capability, $menu_slug, $function );
     add_submenu_page(
         'carnotzet',          // Parent slug
-        'Carnotzet',          // Page title
-        'Carnotzet',          // Menu title
-        'EM_HVI',     // Capability
-        'carnotzet',          // Menu slug
-        'displayCarnotzet'    // Function to display the page content
+        'Résultat sondage',          // Page title
+        'Sondage',          // Menu title
+        'read',     // Capability
+        'carnotzet-menu1',          // Menu slug
+        'displayMenu1'    // Function to display the page content
     );
 
     add_submenu_page(
         'carnotzet',          // Parent slug
-        'Menu',              // Page title
-        'Menu',              // Menu title
+        'Menu2',              // Page title
+        'Menu2',              // Menu title
         'EM_HVI',     // Capability
         'carnotzet-menu2',    // Menu slug
         'displayMenu2'        // Function to display the page content
@@ -79,23 +79,23 @@ function carnotzet_admin_menu() {
     );
 
     // Supprime le menu redondant si nécessaire
-    //remove_submenu_page('carnotzet', 'carnotzet');
+    remove_submenu_page('carnotzet', 'carnotzet');
 }
 
-function displayCarnotzet() {
+function displayMenu1() {
     $carnotzets = getCarnotzet();
-    include(CARNOTZET_DIR . 'includes/views/carnotzet.php');
+    include(CARNOTZET_DIR . 'includes/views/menu1.php');
 }
 
 function displayMenu2() {
     $reponses = getCarnotzetReponse();
-    include(CARNOTZET_DIR . 'includes/views/menu.php');
+    include(CARNOTZET_DIR . 'includes/views/menu2.php');
 
 }
 
 function displayMenu3() {
     $carnotzets = getCarnotzet();
-    include(CARNOTZET_DIR . 'includes/views/carnotzet_all.php');
+    include(CARNOTZET_DIR . 'includes/views/menu3.php');
 }
 
 function displayMenu4() {
@@ -105,7 +105,7 @@ function displayMenu4() {
     if (empty($reponses)) {
         echo '<p>Aucune réponse trouvée.</p>';
     } else {
-        include(CARNOTZET_DIR . 'includes/views/carnotzetreponse.php');
+        include(CARNOTZET_DIR . 'includes/views/menu4.php');
     }
 }
 
